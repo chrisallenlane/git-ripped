@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+import json
+import os.path
+from os.path   import expanduser
+#from datetime import datetime
+from random    import choice
+from random    import randint
+from termcolor import colored
+
+# fail gracefully if the config file does not exist
+json_file = expanduser("~") + "/.git-ripped.json"
+if not os.path.isfile(json_file):
+    print 'The ~/.git-ripped.json file is not found.'
+    exit()
+
+# load the JSON file
+data_file   = open(json_file)
+json        = json.load(data_file)
+
+# randomly choose an exercise
+exercise    = choice(json['exercises'])
+effort      = randint(int(exercise['min']), int(exercise['max']))
+
+# output the exercise to do
+if json['color'] == 'default':
+    print colored("git-ripped: " + exercise['name'] + " " + str(effort) + " " + exercise['measurement'])
+else:
+    print colored("git-ripped: " + exercise['name'] + " " + str(effort) + " " + exercise['measurement'], json['color'])
+
+# close the JSON file
+data_file.close()
+
+# datetime
+#print datetime.utcnow()
