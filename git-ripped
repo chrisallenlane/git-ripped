@@ -26,7 +26,6 @@ try:
     color_available = True
 except:
     color_available = False
-    pass
 
 # attempt to use an alternative config file, if specified
 try:
