@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
-# todo: implement logging
 # todo: implement different config files
 # todo: author the README
 # todo: hack in some more exercises
+# todo: wrap some f/s stuff in try/catch
 
+from datetime import datetime
 import json
 import os.path
 import random
@@ -58,8 +59,19 @@ text_file = open(last_effort_file, 'w')
 text_file.write(str(float(time.time())))
 text_file.close()
 
+# determine the next exercise
+message = exercise['name'] + ' ' + str(effort) + ' ' + exercise['measurement']
+
+# optionally log the exercise performed
+logfile_path = config['logfile']
+if config['logfile'] != False:
+    logfile = open(logfile_path, 'a')
+    logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
+    logfile.close()
+
 # output the exercise to do
 if config['color'] == 'default':
-    print termcolor.colored("git-ripped: " + exercise['name'] + " " + str(effort) + " " + exercise['measurement'])
+    print termcolor.colored("git-ripped: " + message)
 else:
-    print termcolor.colored("git-ripped: " + exercise['name'] + " " + str(effort) + " " + exercise['measurement'], config['color'])
+    print termcolor.colored("git-ripped: " + message, config['color'])
+
