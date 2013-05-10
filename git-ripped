@@ -10,18 +10,31 @@ from datetime import datetime
 import json
 import os.path
 import random
-import termcolor
+import sys
 import time
 
 
 ###############################################################################
 ## Configs
 ###############################################################################
+#
+# Optionally allow for color if termcolor is installed
+#
+# Missing? Run: `sudo pip install termcolor`, or whatever is comparable
+# for your system
+#
+color_available = False
+try:
+    import termcolor
+    color_available = True
+except:
+    pass
+
 # fail gracefully if the config file does not exist
 config_file_path = os.path.expanduser("~") + "/.git-ripped.json"
 #config_file_path = "./git-ripped.json"
 if not os.path.isfile(config_file_path):
-    print 'The ~/.git-ripped.json file is not found.'
+    sys.stderr.write("Error: The ~/.git-ripped.json file is not found or is not readable.\n")
     exit()
 
 # load the JSON file
@@ -80,27 +93,33 @@ logfile_path = config['logfile']
 
 # handle logging, if enabled
 if config['logfile'] != False:
-    # parse out the file extension
-    logfile   = open(logfile_path, 'a')
-    extension = os.path.splitext(logfile_path)[1]
+    
+    # try to write to /tmp
+    try:
+        # parse out the file extension
+        logfile   = open(logfile_path, 'a')
+        extension = os.path.splitext(logfile_path)[1]
 
-    # optionally output csv data
-    if extension == 'csv':
-        # this is going to get more complicated when you account for escaping and such...
-        #logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "," + exercise['name'] +"," "\n")
-        logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
-    else:
-        logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
+        # optionally output csv data
+        if extension == 'csv':
+            # this is going to get more complicated when you account for escaping and such...
+            #logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "," + exercise['name'] +"," "\n")
+            logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
+        else:
+            logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
 
-    logfile.close()
+        logfile.close()
+
+    except:
+        sys.stderr.write("Error: could not write to /tmp")
 
 
 ###############################################################################
 ## StdOut
 ###############################################################################
 # output the exercise to do
-if config['color'] == 'default':
-    print termcolor.colored("git-ripped: " + message)
+if not color_available or config['color'] == 'default':
+    print "git-ripped: " + message
 else:
     print termcolor.colored("git-ripped: " + message, config['color'])
 
