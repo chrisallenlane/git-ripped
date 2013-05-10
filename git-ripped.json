@@ -1,7 +1,7 @@
 {
     "adaptive"      : true,
     "color"         : "cyan",
-    "logfile"       : "/home/chris/.git-ripped.log",
+    "logfile"       : "~.git-ripped.log",
     "max_rest_time" : 1,
     "random"        : false,
     "exercises":[

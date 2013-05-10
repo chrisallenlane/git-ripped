@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 
-# todo: implement different config files
 # todo: author the README
 # todo: hack in some more exercises
-# todo: wrap some f/s stuff in try/catch
-# todo: use expanduser() to make it possible to use ~ in config file
+# todo: finish the csv output option
 
 from datetime import datetime
 import json
@@ -23,18 +21,22 @@ import time
 # Missing? Run: `sudo pip install termcolor`, or whatever is comparable
 # for your system
 #
-color_available = False
 try:
     import termcolor
     color_available = True
 except:
+    color_available = False
     pass
 
+# attempt to use an alternative config file, if specified
+try:
+    config_file_path = sys.argv[1]
+except:
+    config_file_path = os.path.expanduser("~") + "/.git-ripped.json"
+
 # fail gracefully if the config file does not exist
-config_file_path = os.path.expanduser("~") + "/.git-ripped.json"
-#config_file_path = "./git-ripped.json"
 if not os.path.isfile(config_file_path):
-    sys.stderr.write("Error: The ~/.git-ripped.json file is not found or is not readable.\n")
+    sys.stderr.write("Error: The file '" + config_file_path + "' is not found or is not readable.\n")
     exit()
 
 # load the JSON file
@@ -90,10 +92,7 @@ message = exercise['name'] + ' ' + str(effort) + ' ' + exercise['measurement']
 
 # optionally log the exercise performed
 logfile_path = config['logfile']
-
-# handle logging, if enabled
 if config['logfile'] != False:
-    
     # try to write to /tmp
     try:
         # parse out the file extension
@@ -111,7 +110,7 @@ if config['logfile'] != False:
         logfile.close()
 
     except:
-        sys.stderr.write("Error: could not write to /tmp")
+        sys.stderr.write("Error: could not write to /tmp\n")
 
 
 ###############################################################################
