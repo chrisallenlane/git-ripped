@@ -4,6 +4,7 @@
 # todo: author the README
 # todo: hack in some more exercises
 # todo: wrap some f/s stuff in try/catch
+# todo: use expanduser() to make it possible to use ~ in config file
 
 from datetime import datetime
 import json
@@ -12,9 +13,13 @@ import random
 import termcolor
 import time
 
+
+###############################################################################
+## Configs
+###############################################################################
 # fail gracefully if the config file does not exist
-#config_file_path = os.path.expanduser("~") + "/.git-ripped.json"
-config_file_path = "./git-ripped.json"
+config_file_path = os.path.expanduser("~") + "/.git-ripped.json"
+#config_file_path = "./git-ripped.json"
 if not os.path.isfile(config_file_path):
     print 'The ~/.git-ripped.json file is not found.'
     exit()
@@ -24,6 +29,10 @@ config_file = open(config_file_path)
 config      = json.load(config_file)
 config_file.close()
 
+
+###############################################################################
+## Main
+###############################################################################
 # randomly choose an exercise
 exercise    = random.choice(config['exercises'])
 
@@ -59,16 +68,36 @@ text_file = open(last_effort_file, 'w')
 text_file.write(str(float(time.time())))
 text_file.close()
 
+
+###############################################################################
+## Logging
+###############################################################################
 # determine the next exercise
 message = exercise['name'] + ' ' + str(effort) + ' ' + exercise['measurement']
 
 # optionally log the exercise performed
 logfile_path = config['logfile']
+
+# handle logging, if enabled
 if config['logfile'] != False:
-    logfile = open(logfile_path, 'a')
-    logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
+    # parse out the file extension
+    logfile   = open(logfile_path, 'a')
+    extension = os.path.splitext(logfile_path)[1]
+
+    # optionally output csv data
+    if extension == 'csv':
+        # this is going to get more complicated when you account for escaping and such...
+        #logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "," + exercise['name'] +"," "\n")
+        logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
+    else:
+        logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
+
     logfile.close()
 
+
+###############################################################################
+## StdOut
+###############################################################################
 # output the exercise to do
 if config['color'] == 'default':
     print termcolor.colored("git-ripped: " + message)
