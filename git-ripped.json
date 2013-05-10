@@ -1,5 +1,8 @@
 {
-    "color":"cyan",
+    "adaptive"      : true,
+    "color"         : "cyan",
+    "max_rest_time" : 1,
+    "random"        : false,
     "exercises":[
         {
             "name"        : "Push-ups",
@@ -19,6 +22,5 @@
             "max"         : "30",
             "measurement" : "reps"
         }
-    ],
-    "last":"never"
+    ]
 }

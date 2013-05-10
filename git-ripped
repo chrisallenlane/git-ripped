@@ -1,34 +1,80 @@
 #!/usr/bin/env python
+
+# todo: implement logging
+# todo: implement different config files
+# todo: straighten out the rampant type-conversion
+# todo: (related) move away from using strings for efforts in .json
+
 import json
 import os.path
+import time
 from os.path   import expanduser
-#from datetime import datetime
 from random    import choice
 from random    import randint
 from termcolor import colored
 
 # fail gracefully if the config file does not exist
-json_file = expanduser("~") + "/.git-ripped.json"
-if not os.path.isfile(json_file):
+# json_file = expanduser("~") + "/.git-ripped.json"
+config_file_path = "./git-ripped.json"
+if not os.path.isfile(config_file_path):
     print 'The ~/.git-ripped.json file is not found.'
     exit()
 
 # load the JSON file
-data_file   = open(json_file)
-json        = json.load(data_file)
+config_file = open(config_file_path)
+config      = json.load(config_file)
+config_file.close()
 
 # randomly choose an exercise
-exercise    = choice(json['exercises'])
-effort      = randint(int(exercise['min']), int(exercise['max']))
+exercise    = choice(config['exercises'])
+
+# determine the base effort depending on whether randomization is configured
+if config['random']:
+    effort = randint(int(exercise['min']), int(exercise['max']))
+else:
+    effort = int(exercise['max'])
+
+# if adaptive...
+if config['adaptive']:
+    # attempt to read when the last exercise took place
+    last_effort_file = '/tmp/git-ripped.last'
+    if os.path.isfile(last_effort_file):
+        # determine the time difference between now and when the last
+        # effort occurred
+        last_effort = float(open(last_effort_file, 'r').read())
+        timedelta   = float(time.time()) - last_effort
+
+        # calculate an effort modifier based on how long it has been
+        # since the last exercise was performed
+        modifier    = timedelta / float((config['max_rest_time'] * 60))
+
+        #print "td: " + str(timedelta)
+        #print "mx: " + str(config['max_rest_time'])
+        #print "mo: " + str(modifier)
+        #print "ef: " + str(effort)
+        #print "em: " + exercise['max']
+        #print
+
+        # multiply the modifer against the effort
+        effort = int(effort * modifier)
+
+        # keep the effort within the min / max bounds
+        if   effort > int(exercise['max']): effort = int(exercise['max'])
+        elif effort < int(exercise['min']): effort = int(exercise['min'])
+
+        #print "td: " + str(timedelta)
+        #print "mx: " + str(config['max_rest_time'])
+        #print "mo: " + str(modifier)
+        #print "ef: " + str(effort)
+        #print "em: " + exercise['max']
+
+# record when the last effort took place
+text_file = open(last_effort_file, 'w')
+text_file.write(str(float(time.time())))
+text_file.close()
 
 # output the exercise to do
-if json['color'] == 'default':
+if config['color'] == 'default':
     print colored("git-ripped: " + exercise['name'] + " " + str(effort) + " " + exercise['measurement'])
 else:
-    print colored("git-ripped: " + exercise['name'] + " " + str(effort) + " " + exercise['measurement'], json['color'])
-
-# close the JSON file
-data_file.close()
-
-# datetime
-#print datetime.utcnow()
+    print colored("git-ripped: " + exercise['name'] + " " + str(effort) + " " + exercise['measurement'], config['color'])
