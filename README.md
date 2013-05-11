@@ -29,19 +29,27 @@ can operate in one of three modes. It can:
 
 Installing
 ----------
-- Just copy the two files
+Installation is simple.
+
+1. Download `git-ripped` and `.git-ripped.json`
+2. Optionally place `git-ripped` somewhere on your system `$PATH`
+3. Optionally place `.git-ripped.json` in your `$HOME` directory
+4. Modify `.git-ripped.json` per your preferences
+5. Specify `git-ripped` to run as a `git` post-commit hook
 
 Configuration
 -------------
-- Config file
-- params:
+The configuration file contains several switches which can be used to alter
+`git-ripped`'s behavior:
 
-`adaptive`
-`color`
-`logfile`
-`max_rest_time`
-`random`
-`exercises`
+`adaptive` - If boolean `true`, the application will adjust its prescribed exercises
+based on how much time has passed between commits. Set to boolean `true` or `false`.
+
+`color` - Output to the terminal in the specified color. Requires `termcolor` to be installed on your system. (`sudo pip install termcolor`, etc.) Set to a valid terminal color or the string `"default"`.
+
+logfile
+max_rest_time
+random
 
 Usage
 -----

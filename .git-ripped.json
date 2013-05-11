@@ -1,32 +1,32 @@
 {
     "adaptive"      : true,
     "color"         : "cyan",
-    "logfile"       : "/path/to/git-ripped.log",
-    "max_rest_time" : 180,
+    "logfile"       : "~.git-ripped.log",
+    "max_rest_time" : 1,
     "random"        : false,
     "exercises":[
         {
             "name"        : "Push-ups",
             "min"         : 10,
-            "max"         : 50,
+            "max"         : 30,
             "measurement" : "reps"
         },
         {
             "name"        : "Pull-ups",
             "min"         : 3,
-            "max"         : 10,
+            "max"         : 80,
             "measurement" : "reps"
         },
         {
             "name"        : "Bodyweight squats",
             "min"         : 10,
-            "max"         : 50,
+            "max"         : 30,
             "measurement" : "reps"
         },
         {
             "name"        : "52 KB 1-Hand Swings",
             "min"         : 10,
-            "max"         : 50,
+            "max"         : 30,
             "measurement" : "reps"
         }
     ]
