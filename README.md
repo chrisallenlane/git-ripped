@@ -13,7 +13,7 @@ git-ripped
                                                                               
 About
 -----
-`git-ripped` is a `git` post-commit hook that encourages you to take an
+`git-ripped` is a `git` [post-commit] script that encourages you to take an
 exercise break after every commit. Think of it as a Python compatibility layer
 between your soft, shitty programmer body and your unused exercise equipment.
 
@@ -55,4 +55,5 @@ License
 expressed or implied.
 
 
+[post-commit]: http://git-scm.com/book/ch7-3.html
 [GPL3 license]: http://www.gnu.org/licenses/gpl-3.0.txt
