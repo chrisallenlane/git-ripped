@@ -26,8 +26,7 @@ can operate in one of three modes. It can:
 3. intelligently prescribe a number of repititions with each commit, based on
    how much time has passed between commits
 
-screenshot here
-
+![git-ripped screenshot](http://imgur.com/rPOUZOD)
 
 Installing
 ----------
