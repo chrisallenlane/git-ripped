@@ -1,6 +1,19 @@
 git-ripped
 ==========
 
+`git-ripped` is a `git` [post-commit] script that encourages you to take an
+exercise break after every commit. Think of it as a Python compatibility layer
+between your unused exercise equipment and your soft, shitty programmer body.
+
+`git-ripped` can be configured to choose exercises from a list of your specification, and can
+operate in one of three ways. It can be made to:
+
+1. Prescribe a fixed number of repititions at each break
+2. Randomly choose between a specified minimum and maximum number of 
+   repititions for each exercise
+3. Intelligently prescribe a suggested exercise and effort based on how long it
+   has been since your last commit (and thereby, how rested you are in turn)
+
 ```
       XXXX                                                           XXXX     
       XXXX                                                           XXXX     
@@ -11,11 +24,6 @@ git-ripped
       XXXX                                                           XXXX     
 ```
                                                                               
-About
------
-`git-ripped` is a `git` [post-commit] script that encourages you to take an
-exercise break after every commit. Think of it as a Python compatibility layer
-between your soft, shitty programmer body and your unused exercise equipment.
 
 Advantages
 ----------
