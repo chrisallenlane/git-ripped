@@ -43,27 +43,47 @@ Configuration
 The configuration file contains several switches which can be used to alter
 `git-ripped`'s behavior:
 
-`adaptive` - If boolean `true`, the application will adjust its prescribed exercises
-based on how much time has passed between commits. Set to boolean `true` or `false`.
+`adaptive` - If boolean `true`, the application will adjust its prescribed
+exercises based on how much time has passed between commits. Set to boolean
+`true` or `false`.
 
-`color` - Output to the terminal in the specified color. Requires `termcolor` to be installed on your system. (`sudo pip install termcolor`, etc.) Set to a valid terminal color or the string `"default"`.
+`color` - Output to the terminal in the specified color. Requires `termcolor`
+to be installed on your system. (`sudo pip install termcolor`, etc.) Set to a
+valid terminal color or the string `"default"`.
 
-`logfile` - Specify an absolute path to which exercise logs may optionally be written, or boolean `false` to disable logging. If a file path ending with the `.csv` file extension is specified, the application will output CSV data. Otherwise, plain-text will be logged. Make note not to use double-quotes within your exercise names (within the `.git-ripped.json` file), because I am not CSV-escaping these values before writing them to disk.
+`logfile` - Specify an absolute path to which exercise logs may optionally be
+written, or boolean `false` to disable logging. If a file path ending with the
+`.csv` file extension is specified, the application will output CSV data.
+Otherwise, plain-text will be logged. Make note not to use double-quotes within
+your exercise names (within the `.git-ripped.json` file), because I am not
+CSV-escaping these values before writing them to disk.
 
-`max_rest_time` - Specify the time duration (in minutes) wherein the application should consider you to be 100% rested. This value is used for a modifier calculation when the `adaptive` value is set to `true`.
+`max_rest_time` - Specify the time duration (in minutes) wherein the
+application should consider you to be 100% rested. This value is used for a
+modifier calculation when the `adaptive` value is set to `true`.
 
-`random` - If set to boolean `true`, random repetition values will be prescribed for each exercise. This may be used in conjunction with `adaptive`. Specifiy boolean `true` to enable randomization or `false` to disable.
+`random` - If set to boolean `true`, random repetition values will be
+prescribed for each exercise. This may be used in conjunction with `adaptive`.
+Specifiy boolean `true` to enable randomization or `false` to disable.
 
 Usage
 -----
-- Configure as git post-commit hook
-- CSV output
+Regardless of where you chose to install `git-ripped` to your system path, you
+simply need to invoke it in a post-commit hook to run it. Note that the script
+optionally accepts a single command-line parameter, which is the path to the
+configuration file to use, as in:
+
+```bash
+git-ripped /path/to/my/git-ripped.json
+```
 
 _Successful_ Usage
 ------------------
-Make sure to tune it properly that you don't just start ignoring it. If you're
-too ambitious in the configs, you'll just ignore the robot, rendering it
-pointless.
+It's important to specify sensible repetition maximums in your configuration
+file so you don't acquire the habit of ignoring the script's suggestions. Start
+very conservatively and work up from there, being extra mindful to _obey your
+robot overlord_. Don't allow yourself to get into the habbit of ignoring the
+script's instructions, or you will find it wholly ineffective.
 
 License
 -------
