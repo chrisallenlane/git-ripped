@@ -1,6 +1,5 @@
 git-ripped
 ==========
-@todo: this is a stub
 
 ```
       XXXX                                                           XXXX     
@@ -14,9 +13,9 @@ git-ripped
                                                                               
 About
 -----
-- ASCII art?
-- Python compatibility layer between your soft, shitty programmer body, and the
-  unused exercise equipment in your immediate vicinity.
+`git-ripped` is a `git` post-commit hook that encourages you to take an
+exercise break after every commit. Think of it as a Python compatibility layer
+between your soft, shitty programmer body and your unused exercise equipment.
 
 Advantages
 ----------
@@ -52,4 +51,8 @@ pointless.
 
 License
 -------
-GPL 3
+`git-ripped` is released under the [GPL3 license][]. It comes with no warranty,
+expressed or implied.
+
+
+[GPL3 license]: http://www.gnu.org/licenses/gpl-3.0.txt
