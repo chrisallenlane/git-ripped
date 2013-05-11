@@ -15,21 +15,17 @@ between your unused exercise equipment and your soft, shitty programmer body.
       XXXX                                                           XXXX     
 ```
 
-`git-ripped` can be configured to choose exercises from a list of your specification, and can
-operate in one of three ways. It can be made to:
+About
+-----
+`git-ripped` is intended to be configured with exercises of your choosing, and
+can operate in one of three modes. It can:
 
-1. Prescribe a fixed number of repititions at each break
-2. Randomly choose between a specified minimum and maximum number of 
-   repititions for each exercise
-3. Intelligently prescribe a suggested exercise and effort based on how long it
-   has been since your last commit (and thereby, how rested you are in turn)
+1. prescribe a fixed number of repetitions with each commit
+2. prescribe a random number of reptitions with each commit (within a specified
+   min/max)
+3. intelligently prescribe a number of repititions with each commit, based on
+   how much time has passed between commits
 
-                                                                              
-
-Advantages
-----------
-- Exercise occurs after commits, which is a natural best point
-- Encourages you to step away from your computer periodically
 
 Installing
 ----------
