@@ -2,6 +2,16 @@ git-ripped
 ==========
 @todo: this is a stub
 
+```
+      XXXX                                                           XXXX     
+      XXXX                                                           XXXX     
+    XXXXXX                                                           XXXXXX   
+ [||XXXXXX||==========xxxxx========================xxxxx===========||XXXXXX||]
+ /\ XXXXXX                                                           XXXXXX /\
+      XXXX                                                           XXXX     
+      XXXX                                                           XXXX     
+```
+                                                                              
 About
 -----
 - ASCII art?

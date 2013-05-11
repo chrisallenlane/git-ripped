@@ -2,7 +2,6 @@
 
 # todo: author the README
 # todo: hack in some more exercises
-# todo: finish the csv output option
 
 from datetime import datetime
 import json
@@ -99,9 +98,9 @@ if config['logfile'] != False:
 
         # optionally output csv data
         if extension == 'csv':
-            # this is going to get more complicated when you account for escaping and such...
-            #logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "," + exercise['name'] +"," "\n")
-            logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
+            # don't include double quotation marks in your exercise names, 
+            # or you're gonna have a bad time...
+            logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "," + exercise['name'] +"," "\n")
         else:
             logfile.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ": " + message + "\n")
 
