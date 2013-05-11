@@ -68,10 +68,10 @@ Specifiy boolean `true` to enable randomization or `false` to disable.
 
 Usage
 -----
-Regardless of where you chose to install `git-ripped` to your system path, you
-simply need to invoke it in a post-commit hook to run it. Note that the script
-optionally accepts a single command-line parameter, which is the path to the
-configuration file to use, as in:
+Regardless of whether you chose to install `git-ripped` to your system path,
+you simply need to invoke it in a post-commit hook to run it. Note that the
+script optionally accepts a single command-line parameter, which is the path to
+the configuration file to use, as in:
 
 ```bash
 git-ripped /path/to/my/git-ripped.json
