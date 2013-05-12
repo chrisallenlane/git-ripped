@@ -29,6 +29,8 @@ Installation is simple.
 4. Modify `.git-ripped.json` per your preferences
 5. Specify `git-ripped` to run as a `git` post-commit hook
 
+Configuration
+-------------
 ```
       XXXX                                                           XXXX     
       XXXX                                                           XXXX     
@@ -39,8 +41,6 @@ Installation is simple.
       XXXX                                                           XXXX     
 ```
 
-Configuration
--------------
 The configuration file contains several switches which can be used to alter
 `git-ripped`'s behavior:
 
