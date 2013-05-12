@@ -7,27 +7,29 @@ between your unused exercise equipment and your soft, shitty programmer body.
 
 ![Imgur](http://i.imgur.com/rPOUZOD.png)
 
+
 About
 -----
 `git-ripped` is intended to be configured with exercises of your choosing, and
 can operate in one of three modes. It can:
 
 1. prescribe a fixed number of repetitions with each commit
-2. prescribe a random number of repetitions with each commit (within a specified
-   min/max)
+2. prescribe a random number of repetitions with each commit (within a
+   specified min/max)
 3. intelligently prescribe a number of repetitions with each commit, based on
    how much time has passed between commits
 
 
 Installing
 ----------
-Installation is simple.
+Installation is simple:
 
 1. Download `git-ripped` and `.git-ripped.json`
 2. Optionally place `git-ripped` somewhere on your system `$PATH`
 3. Optionally place `.git-ripped.json` in your `$HOME` directory
 4. Modify `.git-ripped.json` per your preferences
 5. Specify `git-ripped` to run as a `git` post-commit hook
+
 
 Configuration
 -------------
@@ -67,6 +69,7 @@ If set to boolean `true`, random repetition values will be
 prescribed for each exercise. This may be used in conjunction with `adaptive`.
 Specify boolean `true` to enable randomization or `false` to disable.
 
+
 Usage
 -----
 Regardless of whether you chose to install `git-ripped` to your system path,
@@ -78,6 +81,7 @@ the configuration file to use, as in:
 git-ripped /path/to/my/git-ripped.json
 ```
 
+
 _Successful_ Usage
 ------------------
 It's important to specify sensible repetition maximums in your configuration
@@ -85,6 +89,7 @@ file so you don't acquire the habit of ignoring the script's suggestions. Start
 very conservatively and work up from there, being extra mindful to _obey your
 robot overlord_. Don't allow yourself to get into the habbit of ignoring the
 script's instructions, or you will find it wholly ineffective.
+
 
 License
 -------
