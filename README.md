@@ -44,26 +44,22 @@ Configuration
 The configuration file contains several switches which can be used to alter
 `git-ripped`'s behavior:
 
-`adaptive` - If boolean `true`, the application will adjust its prescribed
+- `adaptive` - If boolean `true`, the application will adjust its prescribed
 exercises based on how much time has passed between commits. Set to boolean
 `true` or `false`.
-
-`color` - Output to the terminal in the specified color. Requires `termcolor`
+- `color` - Output to the terminal in the specified color. Requires `termcolor`
 to be installed on your system. (`sudo pip install termcolor`, etc.) Set to a
 valid terminal color or the string `"default"`.
-
-`logfile` - Specify an absolute path to which exercise logs may optionally be
+- `logfile` - Specify an absolute path to which exercise logs may optionally be
 written, or boolean `false` to disable logging. If a file path ending with the
 `.csv` file extension is specified, the application will output CSV data.
 Otherwise, plain-text will be logged. Make note not to use double-quotes within
 your exercise names (within the `.git-ripped.json` file), because I am not
 CSV-escaping these values before writing them to disk.
-
-`max_rest_time` - Specify the time duration (in minutes) wherein the
+- `max_rest_time` - Specify the time duration (in minutes) wherein the
 application should consider you to be 100% rested. This value is used for a
 modifier calculation when the `adaptive` value is set to `true`.
-
-`random` - If set to boolean `true`, random repetition values will be
+- `random` - If set to boolean `true`, random repetition values will be
 prescribed for each exercise. This may be used in conjunction with `adaptive`.
 Specify boolean `true` to enable randomization or `false` to disable.
 
