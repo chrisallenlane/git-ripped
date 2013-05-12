@@ -5,15 +5,7 @@ git-ripped
 exercise break after every commit. Think of it as a Python compatibility layer
 between your unused exercise equipment and your soft, shitty programmer body.
 
-```
-      XXXX                                                           XXXX     
-      XXXX                                                           XXXX     
-    XXXXXX                                                           XXXXXX   
- [||XXXXXX||==========xxxxx========================xxxxx===========||XXXXXX||]
- /\ XXXXXX                                                           XXXXXX /\
-      XXXX                                                           XXXX     
-      XXXX                                                           XXXX     
-```
+![Imgur](http://i.imgur.com/rPOUZOD.png)
 
 About
 -----
@@ -26,7 +18,6 @@ can operate in one of three modes. It can:
 3. intelligently prescribe a number of repetitions with each commit, based on
    how much time has passed between commits
 
-![Imgur](http://i.imgur.com/rPOUZOD.png)
 
 Installing
 ----------
@@ -37,6 +28,16 @@ Installation is simple.
 3. Optionally place `.git-ripped.json` in your `$HOME` directory
 4. Modify `.git-ripped.json` per your preferences
 5. Specify `git-ripped` to run as a `git` post-commit hook
+
+```
+      XXXX                                                           XXXX     
+      XXXX                                                           XXXX     
+    XXXXXX                                                           XXXXXX   
+ [||XXXXXX||==========xxxxx========================xxxxx===========||XXXXXX||]
+ /\ XXXXXX                                                           XXXXXX /\
+      XXXX                                                           XXXX     
+      XXXX                                                           XXXX     
+```
 
 Configuration
 -------------
