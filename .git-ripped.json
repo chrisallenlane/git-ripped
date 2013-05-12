@@ -1,8 +1,8 @@
 {
     "adaptive"      : true,
     "color"         : "cyan",
-    "logfile"       : "~.git-ripped.log",
-    "max_rest_time" : 1,
+    "logfile"       : false,
+    "max_rest_time" : 180,
     "random"        : false,
     "exercises":[
         {
