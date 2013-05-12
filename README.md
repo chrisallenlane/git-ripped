@@ -21,12 +21,12 @@ About
 can operate in one of three modes. It can:
 
 1. prescribe a fixed number of repetitions with each commit
-2. prescribe a random number of reptitions with each commit (within a specified
+2. prescribe a random number of repetitions with each commit (within a specified
    min/max)
-3. intelligently prescribe a number of repititions with each commit, based on
+3. intelligently prescribe a number of repetitions with each commit, based on
    how much time has passed between commits
 
-![git-ripped screenshot](http://imgur.com/rPOUZOD)
+[Imgur](http://i.imgur.com/rPOUZOD.png)
 
 Installing
 ----------
@@ -64,7 +64,7 @@ modifier calculation when the `adaptive` value is set to `true`.
 
 `random` - If set to boolean `true`, random repetition values will be
 prescribed for each exercise. This may be used in conjunction with `adaptive`.
-Specifiy boolean `true` to enable randomization or `false` to disable.
+Specify boolean `true` to enable randomization or `false` to disable.
 
 Usage
 -----
