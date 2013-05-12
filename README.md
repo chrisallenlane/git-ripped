@@ -26,7 +26,7 @@ can operate in one of three modes. It can:
 3. intelligently prescribe a number of repetitions with each commit, based on
    how much time has passed between commits
 
-[Imgur](http://i.imgur.com/rPOUZOD.png)
+![Imgur](http://i.imgur.com/rPOUZOD.png)
 
 Installing
 ----------
