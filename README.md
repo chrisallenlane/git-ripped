@@ -3,7 +3,7 @@ git-ripped
 
 `git-ripped` is a `git` [post-commit] script that encourages you to take an
 exercise break after every commit. Think of it as a Python compatibility layer
-between your unused exercise equipment and your soft, shitty programmer body.
+between your enfeebled programmer body and your unused exercise equipment.
 
 ![Imgur](http://i.imgur.com/rPOUZOD.png)
 
