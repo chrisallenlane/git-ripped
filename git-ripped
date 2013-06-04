@@ -64,6 +64,10 @@ if config['adaptive']:
         last_effort = float(open(last_effort_file, 'r').read())
         timedelta   = float(time.time()) - last_effort
 
+        # prescribe no exercise if commits are being made too frequently
+        if ((config['min_rest_time'] * 60) > timedelta):
+            exit()
+
         # calculate an effort modifier based on how long it has been
         # since the last exercise was performed
         modifier    = timedelta / (config['max_rest_time'] * 60)
