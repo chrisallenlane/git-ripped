@@ -64,6 +64,11 @@ CSV-escaping these values before writing them to disk.
 Specify the time duration (in minutes) wherein the
 application should consider you to be 100% rested. This value is used for a
 modifier calculation when the `adaptive` value is set to `true`.
+- `min_rest_time`  
+Specify (in minutes) the minimum amount of time that should pass between
+exercises. By setting this parameter, you can prevent `git-ripped` from 
+prescribing exercises if you're making many rapid-fire commits in quick
+succession.
 - `random`  
 If set to boolean `true`, random repetition values will be
 prescribed for each exercise. This may be used in conjunction with `adaptive`.
