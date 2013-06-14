@@ -13,10 +13,10 @@ About
 `git-ripped` is intended to be configured with exercises of your choosing, and
 can operate in one of three modes. It can:
 
-1. prescribe a fixed number of repetitions with each commit
-2. prescribe a random number of repetitions with each commit (within a
+1. Prescribe a fixed number of repetitions with each commit
+2. Prescribe a random number of repetitions with each commit (within a
    specified min/max)
-3. intelligently prescribe a number of repetitions with each commit, based on
+3. Intelligently prescribe a number of repetitions with each commit, based on
    how much time has passed between commits
 
 
@@ -43,7 +43,7 @@ Configuration
       XXXX                                                           XXXX     
 ```
 
-The configuration file contains several switches which can be used to alter
+The configuration file contains several switches that can be used to alter
 `git-ripped`'s behavior:
 
 - `adaptive`  
@@ -86,14 +86,28 @@ the configuration file to use, as in:
 git-ripped /path/to/my/git-ripped.json
 ```
 
+If you don't specify a path to an alternate configuration file to use,
+`~/.git-ripped.json` will be assumed by default.
+
 
 _Successful_ Usage
 ------------------
 It's important to specify sensible repetition maximums in your configuration
 file so you don't acquire the habit of ignoring the script's suggestions. Start
 very conservatively and work up from there, being extra mindful to _obey your
-robot overlord_. Don't allow yourself to get into the habbit of ignoring the
-script's instructions, or you will find it wholly ineffective.
+robot overlord_.
+
+As far as exercises goes, I've personally had success with some of the programs
+published by Pavel Tsatsouline:
+
+- _[The Naked Warrior][]_
+- _[Enter the Kettlebell!][]_
+
+Beyond being effective, most of the exercises demonstrated in the books above
+take very little time, making them ideal for interspersing throughout a
+workday. (I tend only to exercise from 1-3 minutes per session, which I find to
+be just enough time to provide a refreshing break, but not enough time to
+disrupt my concentration.)
 
 
 License
@@ -102,5 +116,8 @@ License
 expressed or implied.
 
 
-[post-commit]: http://git-scm.com/book/ch7-3.html
-[GPL3 license]: http://www.gnu.org/licenses/gpl-3.0.txt
+[post-commit]:           http://git-scm.com/book/ch7-3.html
+[GPL3 license]:          http://www.gnu.org/licenses/gpl-3.0.txt
+[The Naked Warrior]:     http://amzn.to/198TISq
+[Enter the Kettlebell!]: http://amzn.to/1achWww
+

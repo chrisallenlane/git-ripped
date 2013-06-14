@@ -3,28 +3,29 @@
     "color"         : "cyan",
     "logfile"       : false,
     "max_rest_time" : 180,
+    "min_rest_time" : 10,
     "random"        : false,
     "exercises":[
         {
-            "name"        : "Push-ups",
-            "min"         : 10,
-            "max"         : 30,
-            "measurement" : "reps"
-        },
-        {
-            "name"        : "Pull-ups",
+            "name"        : "1-Arm push-ups",
             "min"         : 3,
-            "max"         : 80,
+            "max"         : 5,
             "measurement" : "reps"
         },
         {
-            "name"        : "Bodyweight squats",
-            "min"         : 10,
-            "max"         : 30,
+            "name"        : "35lb KB Weighted pull-ups",
+            "min"         : 3,
+            "max"         : 5,
             "measurement" : "reps"
         },
         {
-            "name"        : "52 KB 1-Hand Swings",
+            "name"        : "35lb KB Weighted pistols",
+            "min"         : 3,
+            "max"         : 5,
+            "measurement" : "reps"
+        },
+        {
+            "name"        : "53lb KB 1-Hand snatches",
             "min"         : 10,
             "max"         : 30,
             "measurement" : "reps"
